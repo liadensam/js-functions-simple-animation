@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+
+:root {
+  --color-background: #000;
+  --color-bcg-game: #000;
+  --color-border: #ffffff;
+  --color-text: #ffffff;
+  --color-character: rgb(255, 238, 0);
+  --color-block: rgb(186, 52, 248);
+
+}
+
+body {
+  background-color: var(--color-background);
+}
+.game {
+  width: 500px;
+  height: 200px;
+  border: 2px solid var(--color-border);
+  background-color: var(--color-bcg-game);
+  margin: auto;
+}
+#character {
+  width: 20px;
+  height: 50px;
+  background-color: var(--color-character);
+  position: relative;
+  top: 150px;
+}
+/*the animation is separate as in javascript there will be added the animation to the character how we need it, so it will be added when it jumpes, but removed when it stops*/
+.animate {
+  animation: jump 0.3s linear;
+}
+@keyframes jump {
+  0% {
+    top: 150px;
+  }
+  30% {
+    top: 100px;
+  }
+  70% {
+    top: 100px;0
+  }
+  100% {
+    top: 150px;
+  }
+}
+
+#block {
+  background-color:var(--color-block);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: 130px;
+  left: 500px;
+  animation: block 1s infinite linear;
+}
+@keyframes block {
+  0% {
+    left: 500px;
+  }
+  100% {
+    left: -20px;
+  }
+}
+
+p {
+  text-align: center;
+  color: var(--color-text);
+}
+
+
+/*it is accordin to the user preference which you have set up in your device, you can test it if you go to DevTools, click on the three dots next to the settings, click on run command, write emulate CSS prefers-color-scheme: light (or dark, depends which one you have), and stay in the devTools with refreshing*/
+@media (prefers-color-scheme: light) {
+
+  :root {
+    --color-background: #ffffff;
+    --color-bcg-game: #ffffff;
+    --color-border: #000;
+    --color-text: #000;
+    --color-character: rgb(211, 55, 44);
+    --color-block: rgb(29, 71, 150);
+  
+  }
+
+}
